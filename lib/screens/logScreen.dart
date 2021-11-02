@@ -13,6 +13,8 @@ class _LogInState extends State<LogIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  bool passVisibility = false;
+
   final _formKey1 = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -79,11 +81,23 @@ class _LogInState extends State<LogIn> {
                             }
                             return null;
                           },
-                          obscureText: true,
+                          obscureText: !passVisibility,
                           controller: passwordController,
-                          decoration: const InputDecoration(
-                            prefixIcon:
-                                Icon(Icons.lock_outline, color: Colors.black),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.lock_outline,
+                              color: Colors.black,
+                            ),
+                            suffixIcon: IconButton(
+                              icon: passVisibility
+                                  ? Icon(Icons.visibility_off_outlined)
+                                  : Icon(Icons.visibility_outlined),
+                              onPressed: () {
+                                setState(() {
+                                  passVisibility = !passVisibility;
+                                });
+                              },
+                            ),
                             border: OutlineInputBorder(),
                             labelText: 'Password',
                           ),

@@ -14,6 +14,8 @@ class _LogInState extends State<SignUp> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
+  bool passVisibility = false;
+
   final _formKey1 = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -101,11 +103,21 @@ class _LogInState extends State<SignUp> {
                             }
                             return null;
                           },
-                          obscureText: true,
+                          obscureText: !passVisibility,
                           controller: passwordController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             prefixIcon:
                                 Icon(Icons.lock_outline, color: Colors.black),
+                            suffixIcon: IconButton(
+                              icon: passVisibility
+                                  ? Icon(Icons.visibility_off_outlined)
+                                  : Icon(Icons.visibility_outlined),
+                              onPressed: () {
+                                setState(() {
+                                  passVisibility = !passVisibility;
+                                });
+                              },
+                            ),
                             border: OutlineInputBorder(),
                             labelText: 'Password',
                           ),
