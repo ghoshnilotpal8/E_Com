@@ -140,6 +140,7 @@ class _LogInState extends State<LogIn> {
                           ),
                           onPressed: () {
                             _formKey1.currentState!.validate();
+                            context.vRouter.to('/dashboard');
                           },
                         ),
                       ),

@@ -1,3 +1,4 @@
+import 'package:e_com/screens/dashboard.dart';
 import 'package:e_com/screens/logScreen.dart';
 import 'package:e_com/screens/supScreen.dart';
 import 'package:flutter/material.dart';
@@ -12,11 +13,16 @@ class MyApp extends StatelessWidget {
     return VRouter(
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce App',
-      theme: ThemeData(),
+      theme: ThemeData(
+        inputDecorationTheme: InputDecorationTheme(
+          contentPadding: EdgeInsets.symmetric(vertical: 15),
+        ),
+      ),
       routes: [
         VWidget(path: '/', widget: SplashScreen()),
         VWidget(path: '/logIn', widget: LogIn()),
         VWidget(path: '/signUp', widget: SignUp()),
+        VWidget(path: '/dashboard', widget: DashBoard()),
       ],
     );
   }
