@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-class Cement {
+class ModelClass {
   int? index;
   String? name;
   String? category;
   String? imag;
   String? price;
 
-  Cement({
+  ModelClass({
     this.index,
     this.name,
     this.category,
@@ -15,8 +15,8 @@ class Cement {
     this.price,
   });
 
-  factory Cement.fromcategory(Map<String, dynamic> category) {
-    return Cement(
+  factory ModelClass.fromcategory(Map<String, dynamic> category) {
+    return ModelClass(
       index: category["index"],
       name: category["name"],
       category: category["category"],
@@ -25,7 +25,7 @@ class Cement {
     );
   }
 
-  Cement.fromJson(Map<String, dynamic> json) {
+  ModelClass.fromJson(Map<String, dynamic> json) {
     index = json['index'];
     name = json['name'];
     category = json['category'];
@@ -33,14 +33,14 @@ class Cement {
     price = json['price'];
   }
 
-  Cement copyWith({
+  ModelClass copyWith({
     int? index,
     String? name,
     String? category,
     String? imag,
     String? price,
   }) {
-    return Cement(
+    return ModelClass(
       index: index ?? this.index,
       name: name ?? this.name,
       category: category ?? this.category,
@@ -72,7 +72,7 @@ class Cement {
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
 
-    return o is Cement &&
+    return o is ModelClass &&
         o.index == index &&
         o.name == name &&
         o.category == category &&

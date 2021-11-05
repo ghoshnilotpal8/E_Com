@@ -1,0 +1,23 @@
+[
+    {
+        "index": 0,
+        "name": "Amigo Impex",
+        "category": "steel",
+        "imag" :"http://4.imimg.com/data4/JH/GD/MY-2668432/stainless-steel-309-500x500.jpg",
+        "price": "5/kg"
+    },
+    {
+        "index": 1,
+        "name": "SRM stainless steel",
+        "category": "steel",
+        "imag" :"https://5.imimg.com/data5/AH/DU/DF/SELLER-1477969/ss-444-sheets-500x500.jpg",
+        "price": "5.5/kg"
+    },
+    {
+        "index": 2,
+        "name": "RB 1",
+        "category": "steel",
+        "imag" :"http://5.imimg.com/data5/ZV/WL/FW/SELLER-38146890/316-stainless-steel-schedule-pipe-500x500.jpg",
+        "price": "8.99/kg"
+    }
+]
