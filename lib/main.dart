@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future logScreenNavigator(BuildContext context) async {
     await Future.delayed(Duration(seconds: 2), () {
-      context.vRouter.to('/dashboard');
+      context.vRouter.to('/logIn');
     });
   }
 }

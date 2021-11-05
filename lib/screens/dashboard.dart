@@ -84,8 +84,9 @@ class _DashBoardState extends State<DashBoard> {
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
               child: SizedBox(
-                height: 300.h,
+                height: 200.h,
                 child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   itemCount: data.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
@@ -124,8 +125,9 @@ class _DashBoardState extends State<DashBoard> {
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
               child: SizedBox(
-                height: 300.h,
+                height: 200.h,
                 child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
                   itemCount: data.length,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
