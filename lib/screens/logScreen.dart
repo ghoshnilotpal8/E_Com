@@ -139,8 +139,9 @@ class _LogInState extends State<LogIn> {
                             style: TextStyle(fontSize: 18.sp),
                           ),
                           onPressed: () {
-                            _formKey1.currentState!.validate();
-                            context.vRouter.to('/dashboard');
+                            if (_formKey1.currentState!.validate()) {
+                              context.vRouter.to('/dashboard');
+                            }
                           },
                         ),
                       ),

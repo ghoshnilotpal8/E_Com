@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:e_com/constants/constants.dart';
+import 'package:vrouter/src/core/extended_context.dart';
 
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
@@ -54,6 +55,17 @@ class _DashBoardState extends State<DashBoard> {
             ),
           ),
         ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(top: 10.0.sp, bottom: 10.sp),
+            child: IconButton(
+              onPressed: () {
+                context.vRouter.to('/logIn');
+              },
+              icon: Icon(Icons.exit_to_app_outlined, color: Colors.black),
+            ),
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
