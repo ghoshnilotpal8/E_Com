@@ -1,0 +1,44 @@
+[
+    {
+        "index": 0,
+        "name": "UltraTech",
+        "category": "Cement",
+        "imag" :"https://5.imimg.com/data5/OC/HE/MY-18432698/ultratech-cement-500x500.jpg",
+        "price": "4.99"
+    },
+    {
+        "index": 1,
+        "name": "Acc",
+        "category": "Cement",
+        "imag" :"https://5.imimg.com/data5/XQ/RU/MY-9924387/acc-cement-bag-500x500.jpg",
+        "price": "12.99"
+    },
+    {
+        "index": 2,
+        "name": "Ramco",
+        "category": "Cement",
+        "imag" :"https://5.imimg.com/data5/SELLER/Default/2020/12/RQ/EP/JF/2304996/ramco-cement-500x500-1--500x500.jpg",
+        "price": "8.99"
+    },
+    {
+        "index": 3,
+        "name": "Amigo Impex",
+        "category": "Steel",
+        "imag" :"http://4.imimg.com/data4/JH/GD/MY-2668432/stainless-steel-309-500x500.jpg",
+        "price": "5/kg"
+    },
+    {
+        "index": 4,
+        "name": "SRM",
+        "category": "Steel",
+        "imag" :"https://5.imimg.com/data5/AH/DU/DF/SELLER-1477969/ss-444-sheets-500x500.jpg",
+        "price": "5.5/kg"
+    },
+    {
+        "index": 5,
+        "name": "RB 1",
+        "category": "Steel",
+        "imag" :"http://5.imimg.com/data5/ZV/WL/FW/SELLER-38146890/316-stainless-steel-schedule-pipe-500x500.jpg",
+        "price": "8.99/kg"
+    }
+]
