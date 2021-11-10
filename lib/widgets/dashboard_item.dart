@@ -72,7 +72,9 @@ class DashBoardItem extends StatelessWidget {
                   ),
                   InkWell(
                     borderRadius: BorderRadius.circular(50),
-                    onTap: () {},
+                    onTap: () {
+                      cart.add(data[index]);
+                    },
                     child: Container(
                       padding: EdgeInsets.all(8.w),
                       height: 30.w,

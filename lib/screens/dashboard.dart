@@ -35,7 +35,9 @@ class _DashBoardState extends State<DashBoard> {
 
   @override
   void initState() {
-    parsePost();
+    if (data.isEmpty) {
+      parsePost();
+    }
     super.initState();
   }
 
@@ -60,9 +62,9 @@ class _DashBoardState extends State<DashBoard> {
             padding: EdgeInsets.only(top: 10.0.sp, bottom: 10.sp),
             child: IconButton(
               onPressed: () {
-                context.vRouter.to('/logIn');
+                context.vRouter.to('/cart');
               },
-              icon: Icon(Icons.exit_to_app_outlined, color: Colors.black),
+              icon: Icon(Icons.shopping_cart_outlined, color: Colors.black),
             ),
           ),
         ],

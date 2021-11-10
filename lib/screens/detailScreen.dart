@@ -112,7 +112,9 @@ class DetailPage extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         backgroundColor: Colors.orange.shade700,
-        onPressed: () {},
+        onPressed: () {
+          cart.add(data[index]);
+        },
       ),
     );
   }

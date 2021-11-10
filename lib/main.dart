@@ -1,3 +1,4 @@
+import 'package:e_com/screens/cartScreen.dart';
 import 'package:e_com/screens/dashboard.dart';
 import 'package:e_com/screens/logScreen.dart';
 import 'package:e_com/screens/supScreen.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         VWidget(path: '/logIn', widget: LogIn()),
         VWidget(path: '/signUp', widget: SignUp()),
         VWidget(path: '/dashboard', widget: DashBoard()),
+        VWidget(path: '/cart', widget: CartScreen()),
       ],
     );
   }
