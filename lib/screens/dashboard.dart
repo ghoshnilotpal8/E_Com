@@ -95,10 +95,35 @@ class _DashBoardState extends State<DashBoard> {
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
-                      'See More',
-                      style: GoogleFonts.alfaSlabOne(
-                          fontSize: 10.sp, color: Colors.green),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: kBackgroundColor,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.1),
+                          width: 1,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(-6.0, -6.0),
+                            blurRadius: 16.0,
+                          ),
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            offset: Offset(6.0, 6.0),
+                            blurRadius: 16.0,
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'See More',
+                          style: GoogleFonts.alfaSlabOne(
+                              fontSize: 10.sp, color: Colors.green),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -134,10 +159,35 @@ class _DashBoardState extends State<DashBoard> {
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
-                      'See More',
-                      style: GoogleFonts.alfaSlabOne(
-                          fontSize: 10.sp, color: Colors.green),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: kBackgroundColor,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.1),
+                          width: 1,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(-6.0, -6.0),
+                            blurRadius: 16.0,
+                          ),
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            offset: Offset(6.0, 6.0),
+                            blurRadius: 16.0,
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'See More',
+                          style: GoogleFonts.alfaSlabOne(
+                              fontSize: 10.sp, color: Colors.green),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -190,13 +240,22 @@ class _DashBoardState extends State<DashBoard> {
                 child: Container(
                   padding: EdgeInsets.all(20.w),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: kBackgroundColor,
                     borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: Colors.grey.withOpacity(0.1),
+                      width: 1,
+                    ),
                     boxShadow: [
                       BoxShadow(
-                        offset: Offset(0, 10),
-                        blurRadius: 10,
-                        color: Colors.cyan.withOpacity(0.2),
+                        color: Colors.white.withOpacity(0.8),
+                        offset: Offset(-6.0, -6.0),
+                        blurRadius: 16.0,
+                      ),
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        offset: Offset(6.0, 6.0),
+                        blurRadius: 16.0,
                       ),
                     ],
                   ),
@@ -221,8 +280,8 @@ class _DashBoardState extends State<DashBoard> {
                     "₹${data[index].price!}",
                     style: TextStyle(
                       fontSize: 15.w,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFFFF7643),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey,
                     ),
                   ),
                   InkWell(
@@ -233,16 +292,32 @@ class _DashBoardState extends State<DashBoard> {
                       });
                     },
                     child: Container(
-                      padding: EdgeInsets.all(8.w),
+                      padding: EdgeInsets.all(5.w),
                       height: 30.w,
                       width: 30.w,
                       decoration: BoxDecoration(
-                        color: Color(0xFFFF7643).withOpacity(0.15),
+                        color: kBackgroundColor,
                         shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.2),
+                          width: 1,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(-6.0, -6.0),
+                            blurRadius: 16.0,
+                          ),
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            offset: Offset(6.0, 6.0),
+                            blurRadius: 16.0,
+                          ),
+                        ],
                       ),
                       child: SvgPicture.asset(
                         "assets/svg/plus.svg",
-                        color: Color(0xFFFF4848),
+                        color: Colors.grey,
                       ),
                     ),
                   ),
@@ -258,7 +333,7 @@ class _DashBoardState extends State<DashBoard> {
   Scaffold detailsWidget(BuildContext context, int index) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: kBackgroundColor,
         elevation: 0,
         automaticallyImplyLeading: false,
         title: IconButton(
@@ -276,6 +351,7 @@ class _DashBoardState extends State<DashBoard> {
             Hero(
               tag: data[index].name!,
               child: Container(
+                color: Color(0xFFEAF3FC),
                 child: Image.network(
                   data[index].imag!,
                   scale: 1.2,
@@ -291,7 +367,23 @@ class _DashBoardState extends State<DashBoard> {
         height: ScreenUtil().setSp(300),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.red.shade100,
+          border: Border.all(
+            color: Colors.grey.withOpacity(0.1),
+            width: 1,
+          ),
+          color: kBackgroundColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(-6.0, -6.0),
+              blurRadius: 16.0,
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              offset: Offset(6.0, 6.0),
+              blurRadius: 16.0,
+            ),
+          ],
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
@@ -306,7 +398,23 @@ class _DashBoardState extends State<DashBoard> {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.green.withOpacity(0.4),
+                      color: kBackgroundColor,
+                      border: Border.all(
+                        color: Colors.grey.withOpacity(0.2),
+                        width: 2,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(-6.0, -6.0),
+                          blurRadius: 16.0,
+                        ),
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          offset: Offset(6.0, 6.0),
+                          blurRadius: 16.0,
+                        ),
+                      ],
                     ),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
@@ -315,7 +423,7 @@ class _DashBoardState extends State<DashBoard> {
                         style: TextStyle(
                           fontSize: ScreenUtil().setSp(15),
                           fontWeight: FontWeight.bold,
-                          color: Colors.green.shade800,
+                          color: Colors.grey.shade600,
                         ),
                       ),
                     ),
@@ -345,21 +453,44 @@ class _DashBoardState extends State<DashBoard> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        icon: Icon(Icons.shopping_cart),
-        label: Padding(
-          padding: EdgeInsets.all(ScreenUtil().setWidth(8)),
-          child: Text('Add to cart'),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(-6.0, -6.0),
+              blurRadius: 16.0,
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(6.0, 6.0),
+              blurRadius: 16.0,
+            ),
+          ],
+          border: Border.all(
+            color: Colors.grey.withOpacity(0.1),
+            width: 1,
+          ),
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+        child: FloatingActionButton.extended(
+          icon: Icon(Icons.shopping_cart, color: Colors.grey),
+          label: Text(
+            'Add to cart',
+            style: TextStyle(
+              color: Colors.grey.shade500,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          backgroundColor: kBackgroundColor,
+          onPressed: () {
+            setState(() {
+              cart.add(data[index]);
+            });
+          },
         ),
-        backgroundColor: Colors.orange.shade700,
-        onPressed: () {
-          setState(() {
-            cart.add(data[index]);
-          });
-        },
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:e_com/constants/constants.dart';
 import 'package:e_com/screens/cartScreen.dart';
 import 'package:e_com/screens/dashboard.dart';
 import 'package:e_com/screens/logScreen.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce App',
       theme: ThemeData(
+        scaffoldBackgroundColor: kBackgroundColor,
         inputDecorationTheme: InputDecorationTheme(
           contentPadding: EdgeInsets.symmetric(vertical: 15),
         ),
