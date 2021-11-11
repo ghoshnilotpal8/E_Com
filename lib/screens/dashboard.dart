@@ -94,7 +94,9 @@ class _DashBoardState extends State<DashBoard> {
                     style: GoogleFonts.alfaSlabOne(fontSize: 20.sp),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.vRouter.to('/itemPage');
+                    },
                     child: Container(
                       decoration: BoxDecoration(
                         color: kBackgroundColor,
