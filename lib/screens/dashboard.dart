@@ -121,7 +121,7 @@ class _DashBoardState extends State<DashBoard> {
                         child: Text(
                           'See More',
                           style: GoogleFonts.alfaSlabOne(
-                              fontSize: 10.sp, color: Colors.green),
+                              fontSize: 10.sp, color: Colors.grey.shade600),
                         ),
                       ),
                     ),
@@ -185,7 +185,7 @@ class _DashBoardState extends State<DashBoard> {
                         child: Text(
                           'See More',
                           style: GoogleFonts.alfaSlabOne(
-                              fontSize: 10.sp, color: Colors.green),
+                              fontSize: 10.sp, color: Colors.grey.shade600),
                         ),
                       ),
                     ),
