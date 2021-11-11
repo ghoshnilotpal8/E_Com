@@ -269,7 +269,7 @@ class _DashBoardState extends State<DashBoard> {
               Text(
                 data[index].name!,
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
+                  fontWeight: FontWeight.w700,
                   fontSize: 18.sp,
                 ),
               ),
@@ -281,7 +281,7 @@ class _DashBoardState extends State<DashBoard> {
                     style: TextStyle(
                       fontSize: 15.w,
                       fontWeight: FontWeight.bold,
-                      color: Colors.grey,
+                      color: Colors.black87,
                     ),
                   ),
                   InkWell(
@@ -473,11 +473,11 @@ class _DashBoardState extends State<DashBoard> {
           ),
         ),
         child: FloatingActionButton.extended(
-          icon: Icon(Icons.shopping_cart, color: Colors.grey),
+          icon: Icon(Icons.shopping_cart, color: Colors.black),
           label: Text(
             'Add to cart',
             style: TextStyle(
-              color: Colors.grey.shade500,
+              color: Colors.grey.shade800,
               fontWeight: FontWeight.bold,
             ),
           ),
