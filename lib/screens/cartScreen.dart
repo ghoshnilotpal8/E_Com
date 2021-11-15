@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:e_com/constants/constants.dart';
-import 'package:vrouter/src/core/extended_context.dart';
+import 'package:vrouter/vrouter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CartScreen extends StatefulWidget {

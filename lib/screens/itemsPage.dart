@@ -1,7 +1,7 @@
 import 'package:e_com/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:vrouter/src/core/extended_context.dart';
+import 'package:vrouter/vrouter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ItemPage extends StatelessWidget {
@@ -9,13 +9,15 @@ class ItemPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final String? category = context.vRouter.pathParameters['category'];
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: IconButton(
           onPressed: () {
-            context.vRouter.to('/dashboard');
+            context.vRouter.pop();
           },
           icon: Icon(
             Icons.arrow_back_ios,
@@ -29,7 +31,7 @@ class ItemPage extends StatelessWidget {
         itemCount: data.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
-          if (data[index].category == 'Cement') {
+          if (data[index].category == category) {
             return Padding(
               padding: EdgeInsets.all(8.0.sp),
               child: Container(
