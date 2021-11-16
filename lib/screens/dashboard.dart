@@ -138,7 +138,7 @@ class _DashBoardState extends State<DashBoard> {
                 height: 200.h,
                 child: ListView.builder(
                   physics: BouncingScrollPhysics(),
-                  itemCount: data.length,
+                  itemCount: 3,
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
@@ -217,6 +217,73 @@ class _DashBoardState extends State<DashBoard> {
                   },
                 ),
               ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Wood',
+                    style: GoogleFonts.alfaSlabOne(fontSize: 20.sp),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      context.vRouter.toNamed('items',
+                          pathParameters: {'category': 'Wood'});
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: kBackgroundColor,
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: Colors.grey.withOpacity(0.1),
+                          width: 1,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.white,
+                            offset: Offset(-6.0, -6.0),
+                            blurRadius: 16.0,
+                          ),
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            offset: Offset(6.0, 6.0),
+                            blurRadius: 16.0,
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'See More',
+                          style: GoogleFonts.alfaSlabOne(
+                              fontSize: 10.sp, color: Colors.grey.shade600),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: SizedBox(
+                height: 200.h,
+                child: ListView.builder(
+                  physics: BouncingScrollPhysics(),
+                  itemCount: data.length,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    if (data[index].category == 'Wood') {
+                      return itemBuilder(context, index);
+                    } else {
+                      return Container();
+                    }
+                  },
+                ),
+              ),
             )
           ],
         ),
@@ -231,8 +298,8 @@ class _DashBoardState extends State<DashBoard> {
         width: 115.h,
         child: GestureDetector(
           onTap: () {
-            context.vRouter
-                .toNamed('details', pathParameters: {'index': '$index', 'fromItem' :'false'});
+            context.vRouter.toNamed('details',
+                pathParameters: {'index': '$index', 'fromItem': 'false'});
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
