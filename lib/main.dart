@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
               widget: ItemPage(),
             ),
             VWidget(
-              path: 'index=:index',
+              path: 'index=:index/fromItem=:fromItem',
               name: 'details',
               widget: DetailsWidget(),
             ),

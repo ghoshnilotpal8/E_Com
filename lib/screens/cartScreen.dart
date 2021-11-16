@@ -22,7 +22,7 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             IconButton(
               onPressed: () {
-                context.vRouter.to('/dashboard');
+                context.vRouter.pop();
               },
               icon: Icon(
                 Icons.arrow_back_ios,

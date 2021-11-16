@@ -232,7 +232,7 @@ class _DashBoardState extends State<DashBoard> {
         child: GestureDetector(
           onTap: () {
             context.vRouter
-                .toNamed('details', pathParameters: {'index': '$index'});
+                .toNamed('details', pathParameters: {'index': '$index', 'fromItem' :'false'});
           },
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

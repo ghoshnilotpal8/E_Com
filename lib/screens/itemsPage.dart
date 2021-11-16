@@ -15,14 +15,22 @@ class ItemPage extends StatelessWidget {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: IconButton(
-          onPressed: () {
-            context.vRouter.pop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
+        title: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                context.vRouter.pop();
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.black,
+              ),
+            ),
+            Text(
+              category!,
+              style: TextStyle(color: Colors.black),
+            )
+          ],
         ),
       ),
       body: ListView.builder(
@@ -56,8 +64,17 @@ class ItemPage extends StatelessWidget {
                   ],
                 ),
                 child: ListTile(
+                  onTap: () {
+                    context.vRouter.toNamed('details', pathParameters: {
+                      'index': '$index',
+                      'fromItem': 'true'
+                    });
+                  },
                   enabled: true,
-                  leading: Image.network(data[index].imag!),
+                  leading: Hero(
+                    tag: data[index].name!,
+                    child: Image.network(data[index].imag!),
+                  ),
                   title: Text(data[index].name!),
                   subtitle: Text('₹ ${data[index].price!}'),
                   trailing: InkWell(
