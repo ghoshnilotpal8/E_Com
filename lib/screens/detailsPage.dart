@@ -2,24 +2,26 @@ import 'package:e_com/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vrouter/vrouter.dart';
 
-class DetailPage extends StatelessWidget {
-  const DetailPage({
+class DetailsWidget extends StatelessWidget {
+  const DetailsWidget({
     Key? key,
-    required this.index,
   }) : super(key: key);
-
-  final int index;
 
   @override
   Widget build(BuildContext context) {
+    final int? index = int.parse(context.vRouter.pathParameters['index']!);
+    print("Index is at present $index");
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: kBackgroundColor,
         elevation: 0,
         automaticallyImplyLeading: false,
         title: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {
+            context.vRouter.to('/dashboard');
+          },
           icon: Icon(
             Icons.arrow_back_ios,
             color: Colors.black,
@@ -31,8 +33,9 @@ class DetailPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             Hero(
-              tag: data[index].name!,
+              tag: data[index!].name!,
               child: Container(
+                color: Color(0xFFEAF3FC),
                 child: Image.network(
                   data[index].imag!,
                   scale: 1.2,
@@ -48,7 +51,23 @@ class DetailPage extends StatelessWidget {
         height: ScreenUtil().setSp(300),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.red.shade100,
+          border: Border.all(
+            color: Colors.grey.withOpacity(0.1),
+            width: 1,
+          ),
+          color: kBackgroundColor,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(-6.0, -6.0),
+              blurRadius: 16.0,
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              offset: Offset(6.0, 6.0),
+              blurRadius: 16.0,
+            ),
+          ],
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
@@ -63,7 +82,23 @@ class DetailPage extends StatelessWidget {
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Colors.green.withOpacity(0.4),
+                      color: kBackgroundColor,
+                      border: Border.all(
+                        color: Colors.grey.withOpacity(0.2),
+                        width: 2,
+                      ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.white,
+                          offset: Offset(-6.0, -6.0),
+                          blurRadius: 16.0,
+                        ),
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2),
+                          offset: Offset(6.0, 6.0),
+                          blurRadius: 16.0,
+                        ),
+                      ],
                     ),
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(15, 5, 15, 5),
@@ -72,7 +107,7 @@ class DetailPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: ScreenUtil().setSp(15),
                           fontWeight: FontWeight.bold,
-                          color: Colors.green.shade800,
+                          color: Colors.grey.shade600,
                         ),
                       ),
                     ),
@@ -102,19 +137,42 @@ class DetailPage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        icon: Icon(Icons.shopping_cart),
-        label: Padding(
-          padding: EdgeInsets.all(ScreenUtil().setWidth(8)),
-          child: Text('Add to cart'),
+      floatingActionButton: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(-6.0, -6.0),
+              blurRadius: 16.0,
+            ),
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              offset: Offset(6.0, 6.0),
+              blurRadius: 16.0,
+            ),
+          ],
+          border: Border.all(
+            color: Colors.grey.withOpacity(0.1),
+            width: 1,
+          ),
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
+        child: FloatingActionButton.extended(
+          icon: Icon(Icons.shopping_cart, color: Colors.black),
+          label: Text(
+            'Add to cart',
+            style: TextStyle(
+              color: Colors.grey.shade800,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          backgroundColor: kBackgroundColor,
+          onPressed: () {
+            cart.add(data[index]);
+          },
         ),
-        backgroundColor: Colors.orange.shade700,
-        onPressed: () {
-          cart.add(data[index]);
-        },
       ),
     );
   }
