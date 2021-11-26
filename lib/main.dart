@@ -1,6 +1,7 @@
 import 'package:e_com/constants/constants.dart';
 import 'package:e_com/screens/cartScreen.dart';
 import 'package:e_com/screens/chekout.dart';
+import 'package:e_com/screens/confirmation.dart';
 import 'package:e_com/screens/dashboard.dart';
 import 'package:e_com/screens/detailsPage.dart';
 import 'package:e_com/screens/itemsPage.dart';
@@ -38,6 +39,9 @@ class MyApp extends StatelessWidget {
                 VWidget(
                   path: '/payment',
                   widget: Payment(),
+                  stackedRoutes: [
+                    VWidget(path: '/confirm', widget: Confirmation()),
+                  ],
                 ),
               ]),
             ]),

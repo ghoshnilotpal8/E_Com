@@ -12,7 +12,6 @@ class Payment extends StatefulWidget {
 
 class _PaymentState extends State<Payment> {
   int selectedIndex = 0;
-  bool _customTileExpanded = false;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +90,7 @@ class _PaymentState extends State<Payment> {
                           )
                       ],
                       onExpansionChanged: (bool expanded) {
-                        setState(() => _customTileExpanded = expanded);
+                        //setState(() => _customTileExpanded = expanded);
                       },
                     ),
                   ),
@@ -114,12 +113,13 @@ class _PaymentState extends State<Payment> {
         child: FloatingActionButton.extended(
           label: Text(
             'Checkout',
-            style: TextStyle(color: Colors.grey.shade600),
+            style: TextStyle(color: Colors.grey.shade600, fontSize: 20),
           ),
           backgroundColor: kBackgroundColor,
-          icon: Icon(Icons.payment, color: Colors.grey.shade600),
-          onPressed: () {},
-          heroTag: null,
+          icon: Icon(Icons.forward, color: Colors.grey.shade600),
+          onPressed: () {
+            context.vRouter.to('/confirm');
+          },
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
