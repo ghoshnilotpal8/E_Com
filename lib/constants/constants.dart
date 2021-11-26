@@ -37,8 +37,19 @@ BoxDecoration fabDecoration = BoxDecoration(
 );
 
 int addressSelected = 0;
+int paymentMethodSelected = 0;
 
 List<String> address = <String>[add1, add2, add3];
+
+List<String> payment = <String>[
+  'Cash on Delivery',
+  'Paytm',
+  'Google Pay',
+  'PhonePe',
+  'Credit Card',
+  'Debit Card',
+  'Net Banking',
+];
 
 String add1 =
     'SMQ:- 133/04, Vayusena Nagar, Near Futala Lake, Nagpur, Maharashtra, India- 440007';

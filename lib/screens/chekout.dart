@@ -170,7 +170,9 @@ class _CheckOutState extends State<CheckOut> {
               ),
               backgroundColor: kBackgroundColor,
               icon: Icon(Icons.payment, color: Colors.grey.shade600),
-              onPressed: () {},
+              onPressed: () {
+                context.vRouter.to('/payment');
+              },
               heroTag: null,
             ),
           )

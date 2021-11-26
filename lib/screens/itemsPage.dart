@@ -1,7 +1,6 @@
 import 'package:e_com/constants/constants.dart';
 import 'package:e_com/models/model_class.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:vrouter/vrouter.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
