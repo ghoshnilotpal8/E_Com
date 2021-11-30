@@ -40,5 +40,33 @@
         "category": "Steel",
         "imag" :"http://5.imimg.com/data5/ZV/WL/FW/SELLER-38146890/316-stainless-steel-schedule-pipe-500x500.jpg",
         "price": "8.99/kg"
+    },
+    {
+        "index": 6,
+        "name": "Brown Rect",
+        "category": "Wood",
+        "imag" :"https://5.imimg.com/data5/SELLER/Default/2021/9/DT/AP/NB/48625495/jamun-wood-plank-500x500.jpg",
+        "price": "600/Cu.Ft"
+    },
+    {
+        "index": 7,
+        "name": "RoseWood",
+        "category": "Wood",
+        "imag" :"https://5.imimg.com/data5/HR/VJ/FZ/ANDROID-2285156/product-jpeg-250x250.jpg",
+        "price": "5k/Cu.Ft"
+    },
+    {
+        "index": 8,
+        "name": "Brown Log",
+        "category": "Wood",
+        "imag" :"https://5.imimg.com/data5/QP/WN/WY/SELLER-69829746/timber-wood-logs-250x250.jpg",
+        "price": "421/Cu.Ft"
+    },
+    {
+        "index": 9,
+        "name": "Konark",
+        "category": "Cement",
+        "imag" :"http://5.imimg.com/data5/SELLER/Default/2021/4/QQ/HX/UW/4224355/konark-grey-cement-500x500.jpg",
+        "price": "15.89"
     }
 ]

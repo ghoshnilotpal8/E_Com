@@ -22,7 +22,7 @@ class _CartScreenState extends State<CartScreen> {
           children: [
             IconButton(
               onPressed: () {
-                context.vRouter.to('/dashboard');
+                context.vRouter.pop();
               },
               icon: Icon(
                 Icons.arrow_back_ios,
@@ -87,24 +87,7 @@ class _CartScreenState extends State<CartScreen> {
             ),
       floatingActionButton: cart.isNotEmpty
           ? Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.white,
-                    offset: Offset(-6.0, -6.0),
-                    blurRadius: 16.0,
-                  ),
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
-                    offset: Offset(6.0, 6.0),
-                    blurRadius: 16.0,
-                  ),
-                ],
-                border: Border.all(
-                  color: Colors.grey.withOpacity(0.1),
-                  width: 1,
-                ),
-              ),
+              decoration: fabDecoration,
               child: FloatingActionButton.extended(
                 backgroundColor: kBackgroundColor,
                 icon: Icon(Icons.delivery_dining, color: Colors.grey.shade600),
@@ -115,10 +98,13 @@ class _CartScreenState extends State<CartScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  context.vRouter.to('/checkout');
+                },
               ),
             )
           : null,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

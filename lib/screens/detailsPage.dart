@@ -12,7 +12,8 @@ class DetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final int? index = int.parse(context.vRouter.pathParameters['index']!);
-    print("Index is at present $index");
+    final String? fromItem = context.vRouter.pathParameters['fromItem']!;
+    print("fromItem: $fromItem");
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kBackgroundColor,
@@ -20,7 +21,12 @@ class DetailsWidget extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: IconButton(
           onPressed: () {
-            context.vRouter.to('/dashboard');
+            if (fromItem == 'false') {
+              context.vRouter.pop();
+            } else {
+              context.vRouter.toNamed('items',
+                  pathParameters: {'category': '${data[index!].category}'});
+            }
           },
           icon: Icon(
             Icons.arrow_back_ios,
