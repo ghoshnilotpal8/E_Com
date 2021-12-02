@@ -1,6 +1,7 @@
+import 'package:e_com/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:vrouter/src/core/extended_context.dart';
+import 'package:vrouter/vrouter.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -12,6 +13,8 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  bool passVisibility = false;
 
   final _formKey1 = GlobalKey<FormState>();
   @override
@@ -79,11 +82,23 @@ class _LogInState extends State<LogIn> {
                             }
                             return null;
                           },
-                          obscureText: true,
+                          obscureText: !passVisibility,
                           controller: passwordController,
-                          decoration: const InputDecoration(
-                            prefixIcon:
-                                Icon(Icons.lock_outline, color: Colors.black),
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(
+                              Icons.lock_outline,
+                              color: Colors.black,
+                            ),
+                            suffixIcon: IconButton(
+                              icon: passVisibility
+                                  ? Icon(Icons.visibility_off_outlined)
+                                  : Icon(Icons.visibility_outlined),
+                              onPressed: () {
+                                setState(() {
+                                  passVisibility = !passVisibility;
+                                });
+                              },
+                            ),
                             border: OutlineInputBorder(),
                             labelText: 'Password',
                           ),
@@ -109,23 +124,46 @@ class _LogInState extends State<LogIn> {
                       Container(
                         height: 65,
                         width: double.infinity,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white,
+                              offset: Offset(-6.0, -6.0),
+                              blurRadius: 16.0,
+                            ),
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              offset: Offset(6.0, 6.0),
+                              blurRadius: 16.0,
+                            ),
+                          ],
+                        ),
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: ElevatedButton(
                           style: ButtonStyle(
+                            side: MaterialStateProperty.all<BorderSide>(
+                              BorderSide(
+                                color: Colors.grey.withOpacity(0.2),
+                                width: 1.5,
+                              ),
+                            ),
                             shape: MaterialStateProperty.all<OutlinedBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.green),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                kBackgroundColor),
                           ),
                           child: Text(
                             'Login',
-                            style: TextStyle(fontSize: 18.sp),
+                            style: TextStyle(
+                                fontSize: 18.sp, color: Colors.grey.shade600),
                           ),
                           onPressed: () {
-                            _formKey1.currentState!.validate();
+                            if (_formKey1.currentState!.validate()) {
+                              context.vRouter.to('/dashboard');
+                            }
                           },
                         ),
                       ),
@@ -143,20 +181,41 @@ class _LogInState extends State<LogIn> {
                       Container(
                         height: 65,
                         width: double.infinity,
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white,
+                              offset: Offset(-6.0, -6.0),
+                              blurRadius: 16.0,
+                            ),
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.1),
+                              offset: Offset(6.0, 6.0),
+                              blurRadius: 16.0,
+                            ),
+                          ],
+                        ),
                         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: ElevatedButton(
                           style: ButtonStyle(
+                            side: MaterialStateProperty.all<BorderSide>(
+                              BorderSide(
+                                color: Colors.grey.withOpacity(0.2),
+                                width: 1.5,
+                              ),
+                            ),
                             shape: MaterialStateProperty.all<OutlinedBorder>(
                               RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               ),
                             ),
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.red),
+                            backgroundColor: MaterialStateProperty.all<Color>(
+                                kBackgroundColor),
                           ),
                           child: Text(
                             'Google',
-                            style: TextStyle(fontSize: 18.sp),
+                            style: TextStyle(
+                                fontSize: 18.sp, color: Colors.grey.shade600),
                           ),
                           onPressed: () {},
                         ),

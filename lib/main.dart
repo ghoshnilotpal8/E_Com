@@ -1,4 +1,13 @@
+import 'package:e_com/constants/constants.dart';
+import 'package:e_com/screens/cartScreen.dart';
+import 'package:e_com/screens/chekout.dart';
+import 'package:e_com/screens/confirmation.dart';
+import 'package:e_com/screens/dashboard.dart';
+import 'package:e_com/screens/detailsPage.dart';
+import 'package:e_com/screens/itemsPage.dart';
 import 'package:e_com/screens/logScreen.dart';
+import 'package:e_com/screens/past_orders.dart';
+import 'package:e_com/screens/payment.dart';
 import 'package:e_com/screens/supScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,11 +21,44 @@ class MyApp extends StatelessWidget {
     return VRouter(
       debugShowCheckedModeBanner: false,
       title: 'E-Commerce App',
-      theme: ThemeData(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: kBackgroundColor,
+        inputDecorationTheme: InputDecorationTheme(
+          contentPadding: EdgeInsets.symmetric(vertical: 15),
+        ),
+      ),
       routes: [
         VWidget(path: '/', widget: SplashScreen()),
         VWidget(path: '/logIn', widget: LogIn()),
         VWidget(path: '/signUp', widget: SignUp()),
+        VWidget(
+          path: '/dashboard',
+          widget: DashBoard(),
+          stackedRoutes: [
+            VWidget(path: '/cart', widget: CartScreen(), stackedRoutes: [
+              VWidget(path: '/checkout', widget: CheckOut(), stackedRoutes: [
+                VWidget(
+                  path: '/payment',
+                  widget: Payment(),
+                  stackedRoutes: [
+                    VWidget(path: '/confirm', widget: Confirmation()),
+                  ],
+                ),
+              ]),
+            ]),
+            VWidget(
+              path: 'category=:category',
+              name: 'items',
+              widget: ItemPage(),
+            ),
+            VWidget(
+              path: 'index=:index/fromItem=:fromItem',
+              name: 'details',
+              widget: DetailsWidget(),
+            ),
+            VWidget(path: '/pastOrders', widget: PastOrder())
+          ],
+        ),
       ],
     );
   }
