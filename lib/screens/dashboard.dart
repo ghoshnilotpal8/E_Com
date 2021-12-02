@@ -9,6 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:e_com/constants/constants.dart';
 import 'package:vrouter/vrouter.dart';
 
+import 'profile/profile_screen.dart';
+
 class DashBoard extends StatefulWidget {
   const DashBoard({Key? key}) : super(key: key);
 
@@ -44,11 +46,155 @@ class _DashBoardState extends State<DashBoard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Padding(
+        padding: const EdgeInsets.only(bottom: 80),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(250),
+          ),
+          child: SizedBox(
+            width: 250,
+            child: Drawer(
+              child: new ListView(
+                children: <Widget>[
+                  new UserAccountsDrawerHeader(
+                    currentAccountPicture: Hero(
+                      tag: 'profile',
+                      child: CircleAvatar(
+                        backgroundImage: NetworkImage(
+                          'https://thispersondoesnotexist.com/image',
+                        ),
+                      ),
+                    ),
+                    //Color(0xff4367b1)
+                    decoration: BoxDecoration(
+                      color: Colors.lightBlueAccent,
+                    ),
+                    accountName: new Text(
+                      'Rohit ranjan',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w800,
+                        //color: Colors.grey[300],
+                        color: Colors.black,
+                      ),
+                    ),
+                    accountEmail: new Text(
+                      'ranjanrohit812@gmail.com',
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'Your Account',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen()),
+                      );
+                    },
+                    leading: new Icon(
+                      Icons.person_outlined,
+                      size: 26.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  ListTile(
+                    title: Text(
+                      'Your Orders',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onTap: () {
+                      context.vRouter.to('/pastOrders');
+                    },
+                    leading: new Icon(
+                      Icons.notifications_outlined,
+                      size: 26.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  new ListTile(
+                    title: new Text(
+                      'My Cart',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onTap: () {
+                      context.vRouter.to('/cart');
+                    },
+                    leading: new Icon(
+                      Icons.shopping_cart_outlined,
+                      size: 26.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  new ListTile(
+                    title: new Text(
+                      'Offers',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onTap: () {},
+                    leading: new Icon(
+                      Icons.local_offer_outlined,
+                      size: 26.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                  new Divider(
+                    color: Colors.black38,
+                  ),
+                  new ListTile(
+                    title: new Text(
+                      'Log-Out',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                      ),
+                    ),
+                    onTap: () {
+                      context.vRouter.to('/logIn');
+                    },
+                    leading: Icon(
+                      Icons.close,
+                      size: 26.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
       appBar: AppBar(
+        iconTheme: IconThemeData(color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Padding(
-          padding: EdgeInsets.only(top: 20.0.sp, bottom: 10.sp),
+          padding: EdgeInsets.only(top: 20.0.sp, bottom: 20.sp),
           child: Text(
             'Buy Materials',
             style: GoogleFonts.fredokaOne(

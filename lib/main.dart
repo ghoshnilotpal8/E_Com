@@ -6,6 +6,7 @@ import 'package:e_com/screens/dashboard.dart';
 import 'package:e_com/screens/detailsPage.dart';
 import 'package:e_com/screens/itemsPage.dart';
 import 'package:e_com/screens/logScreen.dart';
+import 'package:e_com/screens/past_orders.dart';
 import 'package:e_com/screens/payment.dart';
 import 'package:e_com/screens/supScreen.dart';
 import 'package:flutter/material.dart';
@@ -55,6 +56,7 @@ class MyApp extends StatelessWidget {
               name: 'details',
               widget: DetailsWidget(),
             ),
+            VWidget(path: '/pastOrders', widget: PastOrder())
           ],
         ),
       ],
